@@ -1,30 +1,26 @@
-from django.db.models import Model, IntegerField, FloatField, DecimalField, CharField, DateTimeField, ForeignKey, ManyToManyField, JSONField, CASCADE
+from django.db.models import Model, IntegerField, FloatField, DecimalField, CharField, DateTimeField, ForeignKey, OneToOneField, ManyToManyField, JSONField, CASCADE
 
 class Stock(Model):
 	ticker = CharField(max_length=20)
-	current_price = FloatField()
-	company = CharField(max_length=100)
+	name = CharField(max_length=100)
 	industry = CharField(max_length=100)
 	country = CharField(max_length=60)
+	currency = CharField(max_length=10)
 
 class Price(Model):
-	stock = ForeignKey(Stock, on_delete=CASCADE)
+	stock = ForeignKey(Stock, related_name='prices', on_delete=CASCADE)
 	open_price = FloatField()
-	high_price = FloatField()
-	low_price = FloatField()
 	close_price = FloatField()
 	adjusted_close = FloatField()
-	volume = IntegerField()
 	date = DateTimeField()
 
 class Statistics(Model):
-	stock = ForeignKey(Stock, on_delete=CASCADE)
+	stock = OneToOneField(Stock, on_delete=CASCADE, primary_key=True)
+	current_price = FloatField()
 	market_cap = DecimalField(max_digits=20, decimal_places=2)
 	enterprise_value = DecimalField(max_digits=20, decimal_places=2)
 	profit_margins = FloatField()
-	dividend_yield = FloatField()
 	mean_price_200 = FloatField()
-	trailing_pe = FloatField()
 	forward_pe = FloatField()
 	trailing_eps = FloatField()
 	forward_eps = FloatField()
@@ -33,7 +29,7 @@ class Statistics(Model):
 	price_to_sales = FloatField()
 	enterprise_to_revenue = FloatField()
 	enterprise_to_ebitda = FloatField()
-	date = DateTimeField()
+	timestamp = DateTimeField()
 
 class BalanceSheet(Model):
 	stock = ForeignKey(Stock, on_delete=CASCADE)
