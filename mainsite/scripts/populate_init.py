@@ -65,7 +65,7 @@ def run():
                 'enterprise_value': get(ticker, stats, 'defaultKeyStatistics', 'enterpriseValue', 'raw'),
                 'profit_margins': get(ticker, stats, 'defaultKeyStatistics', 'profitMargins', 'raw'),
                 'mean_price_200': get(ticker, stats, 'summaryDetail', 'twoHundredDayAverage', 'raw'),
-                'forward_pe': get(ticker, stats, 'summaryDetail', 'forwardPE', 'raw'),
+                'trailing_pe': get(ticker, stats, 'summaryDetail', 'trailingPE', 'raw'),
                 'trailing_eps': get(ticker, stats, 'defaultKeyStatistics', 'trailingEps', 'raw'),
                 'forward_eps': get(ticker, stats, 'defaultKeyStatistics', 'forwardEps', 'raw'),
                 'book_value': get(ticker, stats, 'defaultKeyStatistics', 'bookValue', 'raw'),

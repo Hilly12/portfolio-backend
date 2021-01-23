@@ -21,7 +21,7 @@ class Statistics(Model):
 	enterprise_value = DecimalField(max_digits=20, decimal_places=2)
 	profit_margins = FloatField()
 	mean_price_200 = FloatField()
-	forward_pe = FloatField()
+	trailing_pe = FloatField()
 	trailing_eps = FloatField()
 	forward_eps = FloatField()
 	book_value = FloatField()

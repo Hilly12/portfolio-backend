@@ -3,7 +3,7 @@ from django.http.response import JsonResponse
 from django.db.models.query import QuerySet
 from django.core.serializers import serialize
 from rest_framework.generics import ListAPIView
-from datetime import date, timedelta
+from datetime import datetime, timedelta, timezone
 from collections import defaultdict
 from .serializers import StockSerializer, StatisticsSerializer, PriceSerializer
 from .models import Stock, Statistics, Price
@@ -16,15 +16,26 @@ class StatisticsUSView(ListAPIView):
 	queryset = Statistics.objects.filter(stock__currency='USD')
 	serializer_class = StatisticsSerializer
 
+class StatisticsUKView(ListAPIView):
+	queryset = Statistics.objects.filter(stock__currency='GBp')
+	serializer_class = StatisticsSerializer
+
+class StatisticsIndiaView(ListAPIView):
+	queryset = Statistics.objects.filter(stock__currency='INR')
+	serializer_class = StatisticsSerializer
+
 class StatisticsListView(ListAPIView):
 	queryset = Statistics.objects.all()
 	serializer_class = StatisticsSerializer
 
 def recent_prices(request):
-	start_date = date.today() - timedelta(days=40)
+	start_date = datetime.now(timezone.utc) - timedelta(days=50)
 	all_prices = Price.objects.filter(date__gte=start_date)
 	prices = defaultdict(list)
 	for price in serialize('python', all_prices):
-		prices[price['fields']['stock']].append(price['fields'])
+		prices[price['fields']['stock']].append({
+			'price': price['fields']['adjusted_close'],
+			'date': (price['fields']['date'] - start_date).days
+		})
 	return JsonResponse(prices)
 	
