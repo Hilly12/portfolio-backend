@@ -19,12 +19,9 @@ class Statistics(Model):
 	current_price = FloatField()
 	market_cap = DecimalField(max_digits=20, decimal_places=2)
 	enterprise_value = DecimalField(max_digits=20, decimal_places=2)
-	profit_margins = FloatField()
 	mean_price_200 = FloatField()
+	regular_market_change = FloatField()
 	trailing_pe = FloatField()
-	trailing_eps = FloatField()
-	forward_eps = FloatField()
-	book_value = FloatField()
 	price_to_book = FloatField()
 	price_to_sales = FloatField()
 	enterprise_to_revenue = FloatField()
@@ -64,3 +61,9 @@ class StockOnIndex(Model):
 class UnstructuredData(Model):
 	stock = ForeignKey(Stock, on_delete=CASCADE)
 	data = JSONField()
+
+# For site
+class Score(Model):
+	username = CharField(max_length=50)
+	score = IntegerField()
+	game_id = IntegerField()

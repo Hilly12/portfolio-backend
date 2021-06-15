@@ -5,8 +5,8 @@ from django.core.serializers import serialize
 from rest_framework.generics import ListAPIView
 from datetime import datetime, timedelta, timezone
 from collections import defaultdict
-from .serializers import StockSerializer, StatisticsSerializer, PriceSerializer
-from .models import Stock, Statistics, Price
+from .serializers import StockSerializer, StatisticsSerializer, PriceSerializer, ScoreSerializer
+from .models import Stock, Statistics, Price, Score
 
 class StockListView(ListAPIView):
 	queryset = Stock.objects.all()
@@ -29,7 +29,7 @@ class StatisticsListView(ListAPIView):
 	serializer_class = StatisticsSerializer
 
 def recent_prices(request):
-	start_date = datetime.now(timezone.utc) - timedelta(days=50)
+	start_date = datetime.now(timezone.utc) - timedelta(days=180)
 	all_prices = Price.objects.filter(date__gte=start_date)
 	prices = defaultdict(list)
 	for price in serialize('python', all_prices):
@@ -38,4 +38,7 @@ def recent_prices(request):
 			'date': (price['fields']['date'] - start_date).days
 		})
 	return JsonResponse(prices)
-	
+
+class ScoreListView(ListAPIView):
+	queryset = Score.objects.all()
+	serializer_class = ScoreSerializer

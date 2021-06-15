@@ -25,7 +25,7 @@ SECRET_KEY = 'x3%!l5($y5so8h!d^cf2)rc*f90w+431w9u2_cgi90i*y(q+md'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.aahilm.com', '178.62.77.166']
+ALLOWED_HOSTS = ['dractal.com', 'www.dractal.com', '178.62.77.166']
 
 # Application definition
 
