@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from .models import Stock, Statistics, Price, Score
+from .models import Stock, Statistics, Price, Score, Blog
 
 class StockSerializer(ModelSerializer):
 	class Meta:
@@ -23,3 +23,10 @@ class ScoreSerializer(ModelSerializer):
 	class Meta:
 		model = Score
 		fields = ('username', 'score', 'game_id')
+
+class BlogSerializer(ModelSerializer):
+	class Meta:
+		model = Blog
+		fields = '__all__'
+
+

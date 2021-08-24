@@ -1,4 +1,4 @@
-from django.db.models import Model, IntegerField, FloatField, DecimalField, CharField, DateTimeField, ForeignKey, OneToOneField, ManyToManyField, JSONField, CASCADE
+from django.db.models import Model, IntegerField, FloatField, DecimalField, CharField, DateTimeField, ForeignKey, OneToOneField, ManyToManyField, JSONField, CASCADE, TextField
 
 class Stock(Model):
 	ticker = CharField(max_length=20)
@@ -67,3 +67,15 @@ class Score(Model):
 	username = CharField(max_length=50)
 	score = IntegerField()
 	game_id = IntegerField()
+
+class Blog(Model):
+	title = CharField(max_length=60)
+	pretext = CharField(max_length=400)
+	date = DateTimeField()
+	links = CharField(max_length=240)
+	tags = CharField(max_length=240)
+	demoSrc = CharField(max_length=120)
+	content = TextField(blank=True)
+
+	def __str__(self):
+		return self.title

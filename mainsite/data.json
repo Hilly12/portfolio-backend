@@ -1,0 +1,137 @@
+[
+    {
+        "model": "stocks.Score",
+        "pk": 1,
+        "fields": {
+            "username": "Aahil",
+            "score": 500,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 2,
+        "fields": {
+            "username": "God",
+            "score": 5700,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 3,
+        "fields": {
+            "username": "Ye",
+            "score": 6500,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 4,
+        "fields": {
+            "username": "Bob",
+            "score": 1600,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 5,
+        "fields": {
+            "username": "Wagwan",
+            "score": 10800,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 6,
+        "fields": {
+            "username": "WitheredBlock49",
+            "score": 1600,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 7,
+        "fields": {
+            "username": "Slowers",
+            "score": 1200,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 8,
+        "fields": {
+            "username": "Slowers",
+            "score": 2250,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 9,
+        "fields": {
+            "username": "MuddyDream23",
+            "score": 2650,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 10,
+        "fields": {
+            "username": "IndipBear",
+            "score": 2300,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 11,
+        "fields": {
+            "username": "FlatPond19",
+            "score": 1100,
+            "game_id": 1
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 12,
+        "fields": {
+            "username": "FallingFog54",
+            "score": 1400,
+            "game_id": 0
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 13,
+        "fields": {
+            "username": "RoyalShadow05",
+            "score": 2150,
+            "game_id": 1
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 14,
+        "fields": {
+            "username": "BillowingSilence24",
+            "score": 10250,
+            "game_id": 1
+        }
+    },
+    {
+        "model": "stocks.Score",
+        "pk": 15,
+        "fields": {
+            "username": "ProudFeather91",
+            "score": 6200,
+            "game_id": 0
+        }
+    }
+]
