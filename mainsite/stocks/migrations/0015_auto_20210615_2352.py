@@ -6,22 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stocks', '0014_auto_20210615_2338'),
+        ("stocks", "0014_auto_20210615_2338"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='blog',
-            name='keywords',
+            model_name="blog",
+            name="keywords",
         ),
         migrations.RemoveField(
-            model_name='blog',
-            name='technologies',
+            model_name="blog",
+            name="technologies",
         ),
         migrations.AddField(
-            model_name='blog',
-            name='tags',
-            field=models.CharField(default='Deep RL, Tensorflow, Python', max_length=240),
+            model_name="blog",
+            name="tags",
+            field=models.CharField(
+                default="Deep RL, Tensorflow, Python", max_length=240
+            ),
             preserve_default=False,
         ),
     ]

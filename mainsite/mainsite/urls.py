@@ -19,8 +19,8 @@ from django.views import debug
 from django.views.generic import TemplateView
 
 urlpatterns = [
-	path('stocks/', include('stocks.urls')),
-    path('admin/', admin.site.urls),
-	# path('', debug.default_urlconf),
-	path('', TemplateView.as_view(template_name="index.html"))
+    path("stocks/", include("stocks.urls")),
+    path("admin/", admin.site.urls),
+    # path('', debug.default_urlconf),
+    path("", TemplateView.as_view(template_name="index.html")),
 ]

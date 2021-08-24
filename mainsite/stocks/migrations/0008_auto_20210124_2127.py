@@ -6,24 +6,24 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stocks', '0007_remove_statistics_forward_pe'),
+        ("stocks", "0007_remove_statistics_forward_pe"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='statistics',
-            name='book_value',
+            model_name="statistics",
+            name="book_value",
         ),
         migrations.RemoveField(
-            model_name='statistics',
-            name='forward_eps',
+            model_name="statistics",
+            name="forward_eps",
         ),
         migrations.RemoveField(
-            model_name='statistics',
-            name='profit_margins',
+            model_name="statistics",
+            name="profit_margins",
         ),
         migrations.RemoveField(
-            model_name='statistics',
-            name='trailing_eps',
+            model_name="statistics",
+            name="trailing_eps",
         ),
     ]

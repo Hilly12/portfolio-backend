@@ -6,19 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stocks', '0013_remove_blog_imgsrc'),
+        ("stocks", "0013_remove_blog_imgsrc"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blog',
-            name='pretext',
-            field=models.CharField(default='Sample text', max_length=400),
+            model_name="blog",
+            name="pretext",
+            field=models.CharField(default="Sample text", max_length=400),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='blog',
-            name='title',
+            model_name="blog",
+            name="title",
             field=models.CharField(max_length=60),
         ),
     ]

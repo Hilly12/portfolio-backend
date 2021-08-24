@@ -1,5 +1,6 @@
 from stocks.models import Stock
 
+
 def run():
-	stocks = Stock.objects.all()
-	stocks.delete()
+    stocks = Stock.objects.all()
+    stocks.delete()

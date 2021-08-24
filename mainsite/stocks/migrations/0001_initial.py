@@ -8,109 +8,226 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Index',
+            name="Index",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=60)),
-                ('country', models.CharField(max_length=60)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=60)),
+                ("country", models.CharField(max_length=60)),
             ],
         ),
         migrations.CreateModel(
-            name='Stock',
+            name="Stock",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ticker', models.CharField(max_length=20)),
-                ('current_price', models.FloatField()),
-                ('company', models.CharField(max_length=100)),
-                ('industry', models.CharField(max_length=100)),
-                ('country', models.CharField(max_length=60)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("ticker", models.CharField(max_length=20)),
+                ("current_price", models.FloatField()),
+                ("company", models.CharField(max_length=100)),
+                ("industry", models.CharField(max_length=100)),
+                ("country", models.CharField(max_length=60)),
             ],
         ),
         migrations.CreateModel(
-            name='UnstructuredData',
+            name="UnstructuredData",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('data', models.JSONField()),
-                ('stock', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stocks.stock')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("data", models.JSONField()),
+                (
+                    "stock",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="stocks.stock"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='StockOnIndex',
+            name="StockOnIndex",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('index', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stocks.index')),
-                ('stock', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stocks.stock')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "index",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="stocks.index"
+                    ),
+                ),
+                (
+                    "stock",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="stocks.stock"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Statistics',
+            name="Statistics",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('market_cap', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('enterprise_value', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('profit_margins', models.FloatField()),
-                ('dividend_yield', models.FloatField()),
-                ('mean_price_200', models.FloatField()),
-                ('trailing_pe', models.FloatField()),
-                ('forward_pe', models.FloatField()),
-                ('trailing_eps', models.FloatField()),
-                ('forward_eps', models.FloatField()),
-                ('book_value', models.FloatField()),
-                ('price_to_book', models.FloatField()),
-                ('price_to_sales', models.FloatField()),
-                ('enterprise_to_revenue', models.FloatField()),
-                ('enterprise_to_ebitda', models.FloatField()),
-                ('date', models.DateTimeField()),
-                ('stock', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stocks.stock')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("market_cap", models.DecimalField(decimal_places=2, max_digits=20)),
+                (
+                    "enterprise_value",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                ("profit_margins", models.FloatField()),
+                ("dividend_yield", models.FloatField()),
+                ("mean_price_200", models.FloatField()),
+                ("trailing_pe", models.FloatField()),
+                ("forward_pe", models.FloatField()),
+                ("trailing_eps", models.FloatField()),
+                ("forward_eps", models.FloatField()),
+                ("book_value", models.FloatField()),
+                ("price_to_book", models.FloatField()),
+                ("price_to_sales", models.FloatField()),
+                ("enterprise_to_revenue", models.FloatField()),
+                ("enterprise_to_ebitda", models.FloatField()),
+                ("date", models.DateTimeField()),
+                (
+                    "stock",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="stocks.stock"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Price',
+            name="Price",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('open_price', models.FloatField()),
-                ('high_price', models.FloatField()),
-                ('low_price', models.FloatField()),
-                ('close_price', models.FloatField()),
-                ('adjusted_close', models.FloatField()),
-                ('volume', models.IntegerField()),
-                ('date', models.DateTimeField()),
-                ('stock', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stocks.stock')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("open_price", models.FloatField()),
+                ("high_price", models.FloatField()),
+                ("low_price", models.FloatField()),
+                ("close_price", models.FloatField()),
+                ("adjusted_close", models.FloatField()),
+                ("volume", models.IntegerField()),
+                ("date", models.DateTimeField()),
+                (
+                    "stock",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="stocks.stock"
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='index',
-            name='stocks',
-            field=models.ManyToManyField(through='stocks.StockOnIndex', to='stocks.Stock'),
+            model_name="index",
+            name="stocks",
+            field=models.ManyToManyField(
+                through="stocks.StockOnIndex", to="stocks.Stock"
+            ),
         ),
         migrations.CreateModel(
-            name='BalanceSheet',
+            name="BalanceSheet",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cash', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('inventory', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('short_term_investments', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('long_term_investments', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('good_will', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_current_assets', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_current_liabilities', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_assets', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_liabilities', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_stockholder_equity', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_revenue', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('gross_profit', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('research_development', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('operating_income', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('total_operating_expenses', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('ebit', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('net_income', models.DecimalField(decimal_places=2, max_digits=20)),
-                ('date', models.DateTimeField()),
-                ('stock', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stocks.stock')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("cash", models.DecimalField(decimal_places=2, max_digits=20)),
+                ("inventory", models.DecimalField(decimal_places=2, max_digits=20)),
+                (
+                    "short_term_investments",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                (
+                    "long_term_investments",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                ("good_will", models.DecimalField(decimal_places=2, max_digits=20)),
+                (
+                    "total_current_assets",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                (
+                    "total_current_liabilities",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                ("total_assets", models.DecimalField(decimal_places=2, max_digits=20)),
+                (
+                    "total_liabilities",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                (
+                    "total_stockholder_equity",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                ("total_revenue", models.DecimalField(decimal_places=2, max_digits=20)),
+                ("gross_profit", models.DecimalField(decimal_places=2, max_digits=20)),
+                (
+                    "research_development",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                (
+                    "operating_income",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                (
+                    "total_operating_expenses",
+                    models.DecimalField(decimal_places=2, max_digits=20),
+                ),
+                ("ebit", models.DecimalField(decimal_places=2, max_digits=20)),
+                ("net_income", models.DecimalField(decimal_places=2, max_digits=20)),
+                ("date", models.DateTimeField()),
+                (
+                    "stock",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="stocks.stock"
+                    ),
+                ),
             ],
         ),
     ]
